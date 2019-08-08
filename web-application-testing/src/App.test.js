@@ -16,7 +16,7 @@ describe('', () => {
   // to see if it renders without crashing
   it('should render the App component', () => {
     render(<App />);
-
+    
   });
 
 })

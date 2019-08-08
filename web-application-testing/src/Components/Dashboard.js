@@ -1,10 +1,12 @@
 import React from 'react';
+import Display from './Display';
 
-
-
-function Dashboard () {
+function Dashboard ()  {
+    return(    
     <div className='dashboard'> 
-    
-    </div>
+    I am dashboard
+    <Display/>
+    </div>)
+
 }
 export default Dashboard;
