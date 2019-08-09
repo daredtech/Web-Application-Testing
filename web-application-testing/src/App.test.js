@@ -5,7 +5,7 @@ import '@testing-library/react/cleanup-after-each';
 import {render, fireEvent} from '@testing-library/react';
 
 
-describe('', () => {
+describe('<App/>', () => {
 
   // default
   it('renders without crashing usung ReactDom', () => {
@@ -59,7 +59,7 @@ describe('', () => {
     });
 
     // to check the foulsCounting functionality
-    it ('should reset strikes and balls to 0', () =>{
+    it ('should not go above 2', () =>{
       let {getByText} = render(<App />);
       const foul = getByText(/^foul$/i);
       fireEvent.click(foul);
