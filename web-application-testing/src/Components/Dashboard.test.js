@@ -1,22 +1,64 @@
 import React from 'react';
 import {render} from '@testing-library/react';
 import "@testing-library/react/cleanup-after-each";
-import Dashboard, {ballsCounting} from './Dashboard';
+import Dashboard from './Dashboard';
+import {fireEvent, cleanup} from '@testing-library/react';
+
+
+
+{/* <button onClick={props.ballsCounting} className='dashboard-button-balls'>balls</button>
+<button onClick={props.strikesCounting} className='dashboard-button-balls'>strikes</button>
+<button onClick={props.foulCounting} className='dashboard-button-balls'>foul</button>
+<button onClick={props.hitCounting} className='dashboard-button-balls'>hit</button> */}
+
 
 // to test Dashboard component
-describe('<Dashboard .>', () => {
+describe ('<Dashboard .>', () => {
 
     // to see if component renders
     it('should render the dashboard component', () =>{
         const dashboard = render(<Dashboard/>);
     });
+
+    // to check the functionality of each of the functions
+    // using mocked functions
+
+    it('should check the balls button', () => {
+        const click = jest.fn();
+        const { getByText } = render(<Dashboard ballsCounting={click} />);
+        const ballsButton = getByText(/ball/i);
+        fireEvent.click(ballsButton);
+        expect(click).toBeCalled();
+      });
+
+      it('should check the strikes button', () => {
+        const click = jest.fn();
+        const { getByText } = render(<Dashboard strikesCounting={click} />);
+        const stikesButton = getByText(/strike/i);
+        fireEvent.click(stikesButton);
+        expect(click).toBeCalled();
+      });
+
+      it('should check the foul button', () => {
+        const click = jest.fn();
+        const { getByText } = render(<Dashboard foulsCounting={click} />);
+        const foulsButton = getByText(/foul/i);
+        fireEvent.click(foulsButton);
+        expect(click).toBeCalled();
+      });
+
+      it('should check the hit button', () => {
+        const click = jest.fn();
+        const { getByText } = render(<Dashboard hitsCounting={click} />);
+        const hitsButton = getByText(/hit/i);
+        fireEvent.click(hitsButton);
+        expect(click).toBeCalled();
+      });
+
+
+
+  
+
 });
 
-  // to test ballsCounting function
-  describe('ballsCounting ', () => {
-    it('should update the current state of balls', () => {
-        
-    } )
 
-  });
- 

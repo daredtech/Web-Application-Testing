@@ -1,26 +1,15 @@
 import React, {useState} from 'react';
 import Display from './Display';
 
-function Dashboard ()  {
-
-    const [balls, setBalls] = useState(0);
-
-    function ballsCounting() {
-        console.log('inside ballsCounting');
-        if (balls >=4){
-            setBalls(0);
-        }
-        else{
-            setBalls(balls+1);
-        }
-    }
-
+function Dashboard (props)  {
     return(    
     <div className='dashboard'> 
-    I am dashboard
-    <Display/>
-    <button onClick={ballsCounting} className='dashboard-button-balls'>balls</button>
-    Balls value: {balls}
+    
+    <button onClick={props.ballsCounting} className='dashboard-button-balls'>ball</button>
+    <button onClick={props.strikesCounting} className='dashboard-button-balls'>strike</button>
+    <button onClick={props.foulsCounting} className='dashboard-button-balls'>foul</button>
+    <button onClick={props.hitsCounting} className='dashboard-button-balls'>hit</button>
+    
     </div>)
 
 }
