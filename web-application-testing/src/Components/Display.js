@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Display () {
+function Display (props) {
     return(
         <div className='display'>
-            I am display component
+            <div>
+                Balls: {props.balls}
+            </div>
+            <div>
+                Strikes: {props.strikes}
+            </div>
+      
         </div>
     )
 }

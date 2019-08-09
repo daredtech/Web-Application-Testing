@@ -4,14 +4,6 @@ import "@testing-library/react/cleanup-after-each";
 import Dashboard from './Dashboard';
 import {fireEvent, cleanup} from '@testing-library/react';
 
-
-
-{/* <button onClick={props.ballsCounting} className='dashboard-button-balls'>balls</button>
-<button onClick={props.strikesCounting} className='dashboard-button-balls'>strikes</button>
-<button onClick={props.foulCounting} className='dashboard-button-balls'>foul</button>
-<button onClick={props.hitCounting} className='dashboard-button-balls'>hit</button> */}
-
-
 // to test Dashboard component
 describe ('<Dashboard .>', () => {
 
@@ -55,9 +47,6 @@ describe ('<Dashboard .>', () => {
         expect(click).toBeCalled();
       });
 
-
-
-  
 
 });
 
