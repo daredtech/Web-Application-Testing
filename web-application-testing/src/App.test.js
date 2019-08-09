@@ -20,7 +20,7 @@ describe('', () => {
 
   // to check the ballsCounting functionality
   it ('should match # clicked', () =>{
-    const {getByText} = render(<App />);
+    let {getByText} = render(<App />);
     const ball = getByText(/^ball$/i); // button text
   
     fireEvent.click(ball);
@@ -32,9 +32,43 @@ describe('', () => {
     fireEvent.click(ball);
     fireEvent.click(ball);
     getByText(/Balls: 0/);
-  })
+  });
 
+    // to check the strikesCounting functionality
+    it ('should match # clicked', () =>{
+      let {getByText} = render(<App />);
+      const strike  = getByText(/^strike$/i); // button text
 
+      fireEvent.click(strike);
+      fireEvent.click(strike);
+      fireEvent.click(strike);
+      getByText(/Strikes: 3/);
+   
+      // if over 3, should reset to 0
+      fireEvent.click(strike);
+      getByText(/Strikes: 0/);
+    });
+
+    // to check the hitsCounting functionality
+    it ('should reset strikes and balls to 0', () =>{
+      let {getByText} = render(<App />);
+      const hit = getByText(/^hit$/i);
+      fireEvent.click(hit);
+      getByText(/Balls: 0/);
+      getByText(/Strikes: 0/);
+    });
+
+    // to check the foulsCounting functionality
+    it ('should reset strikes and balls to 0', () =>{
+      let {getByText} = render(<App />);
+      const foul = getByText(/^foul$/i);
+      fireEvent.click(foul);
+      getByText(/Strikes: 1/);
+      fireEvent.click(foul);
+      getByText(/Strikes: 2/);
+      fireEvent.click(foul);
+      getByText(/Strikes: 2/);
+    });
 
 })
 
